@@ -20,7 +20,8 @@ class EventSourcer {
   }
   undo() {
     if(numbers_array.length === 0){
-      return first_value;
+      this.value = 0
+      return this.value;
     }
     popped_number = numbers_array.pop();
     popped_array.push(popped_number)
@@ -43,8 +44,8 @@ class EventSourcer {
       return this.value;
     }
     for(let i = 0; i < num; i++){
-      if(numbers_array.length === 0){
-        this.value = first_value
+      if(numbers_array.length === 0 || numbers_array.length<num){
+        this.value = 0;
         return this.value;
       }
       popped_number = numbers_array.pop();
@@ -70,7 +71,6 @@ class EventSourcer {
     return this.value;
   }
 }
-
 
 // ----- Do not modify anything below this line (needed for test suite) ------
 module.exports = EventSourcer;
